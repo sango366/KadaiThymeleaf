@@ -13,7 +13,7 @@ public class InputController {
      　初回アクセス時はpreviousはoutput.htmlのリンクから送られてこないため、if文で条件分岐させる
      */
     @GetMapping("/input")
-    public String getInput(@RequestParam("previous")String previous, Model model) {
+    public String getInput(@RequestParam(name = "previous",required = false)String previous, Model model) {
         if(previous != null) {
             model.addAttribute("previous",previous);
         }
